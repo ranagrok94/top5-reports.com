@@ -1,0 +1,9 @@
+[2026-01-23 21:11:51] BLOCKED_GEO_WHITE | IP: 2804:d59:b300:9b00:14dc:c4b0:9f9c:fb24 | Geo: BR/Goiânia | Ref: NONE | Info: País não permitido: BR
+[2026-01-23 21:12:11] BLOCKED_GEO_WHITE | IP: 2804:d59:b300:9b00:14dc:c4b0:9f9c:fb24 | Geo: BR/Goiânia | Ref: NONE | Info: País não permitido: BR
+[2026-01-23 21:13:36] BLOCKED_GEO_WHITE | IP: 2804:d59:b300:9b00:14dc:c4b0:9f9c:fb24 | Geo: BR/Goiânia | Ref: https://googleads.g.doubleclick.net/ | Info: País não permitido: BR
+[2026-01-23 21:13:53] ALLOWED_ADS | IP: 2804:d59:b300:9b00:14dc:c4b0:9f9c:fb24 | Geo: BR/Goiânia | Ref: https://googleads.g.doubleclick.net/ | Info: Google Ads Confirmado - GCLID: 123445
+[2026-01-23 21:14:44] ALLOWED_ADS | IP: 2804:d59:b300:9b00:14dc:c4b0:9f9c:fb24 | Geo: BR/Goiânia | Ref: https://googleads.g.doubleclick.net/ | Info: Google Ads Confirmado - GCLID: 123445
+[2026-01-23 21:19:05] BLOCKED_GEO_BLACK | IP: 2804:d59:b300:9b00:14dc:c4b0:9f9c:fb24 | Geo: BR/Goiânia | Ref: https://googleads.g.doubleclick.net/ | Info: País Bloqueado (Blacklist): BR
+[2026-01-23 21:21:02] ALLOWED_ADS | IP: 2804:d59:b300:9b00:14dc:c4b0:9f9c:fb24 | Geo: BR/Goiânia | Ref: https://googleads.g.doubleclick.net/ | Info: Google Ads Confirmado - GCLID: 123445
+[2026-01-23 21:47:19] GOOGLE_IP | IP: 66.102.8.35 | Geo: US/Mountain View | Ref: NONE | Info: IP Oficial Google (Crawler/Bot/Cloud)
+[2026-01-23 21:47:23] GOOGLE_IP | IP: 74.125.215.34 | Geo: US/Mountain View | Ref: NONE | Info: IP Oficial Google (Crawler/Bot/Cloud)

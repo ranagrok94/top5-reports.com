@@ -1,0 +1,10 @@
+[2026-01-28 08:19:51] BLOCKED_GEO_WHITE | IP: 149.54.1.228 | Geo: AF/Kabul | Ref: https://www.google.com/ | Info: País não permitido (Whitelist): AF
+[2026-01-28 08:19:51] BLOCKED_GEO_WHITE | IP: 149.54.1.229 | Geo: AF/Kabul | Ref: https://www.google.com/ | Info: País não permitido (Whitelist): AF
+[2026-01-28 08:19:54] BLOCKED_GEO_WHITE | IP: 61.5.201.4 | Geo: AF/Jalalabad | Ref: https://www.google.com/ | Info: País não permitido (Whitelist): AF
+[2026-01-28 08:19:54] BLOCKED_GEO_WHITE | IP: 61.5.201.5 | Geo: AF/Jalalabad | Ref: https://www.google.com/ | Info: País não permitido (Whitelist): AF
+[2026-01-28 19:18:58] GOOGLE_IP | IP: 66.249.92.41 | Geo: US/Mountain View | Ref: NONE | Info: IP Oficial Google (Crawler/Bot/Cloud)
+[2026-01-28 19:26:04] GOOGLE_IP | IP: 66.249.92.12 | Geo: US/Mountain View | Ref: NONE | Info: IP Oficial Google (Crawler/Bot/Cloud)
+[2026-01-28 19:27:02] GOOGLE_IP | IP: 66.249.92.169 | Geo: US/Mountain View | Ref: NONE | Info: IP Oficial Google (Crawler/Bot/Cloud)
+[2026-01-28 19:43:31] GOOGLE_IP | IP: 66.249.92.43 | Geo: US/Mountain View | Ref: NONE | Info: IP Oficial Google (Crawler/Bot/Cloud)
+[2026-01-28 19:44:27] GOOGLE_IP | IP: 66.249.92.11 | Geo: US/Mountain View | Ref: NONE | Info: IP Oficial Google (Crawler/Bot/Cloud)
+[2026-01-28 20:20:26] GOOGLE_IP | IP: 66.249.92.196 | Geo: US/Mountain View | Ref: NONE | Info: IP Oficial Google (Crawler/Bot/Cloud)

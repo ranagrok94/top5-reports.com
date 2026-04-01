@@ -1,0 +1,4 @@
+[2026-02-17 08:33:47] BLOCKED_GEO_WHITE | IP: 2804:5f00:fc02:3100:ad73:d9f:2903:9196 | Geo: BR/São Paulo | Ref: NONE | Info: País não permitido (Whitelist): BR
+[2026-02-17 08:34:21] BLOCKED_GEO_WHITE | IP: 2804:5f00:fc02:3100:ad73:d9f:2903:9196 | Geo: BR/São Paulo | Ref: NONE | Info: País não permitido (Whitelist): BR
+[2026-02-17 08:40:01] BLOCKED_NO_ADS | IP: 2600:4040:b4d3:c800:e17f:8dd7:28ff:1b64 | Geo: US/Severn | Ref: NONE | Info: GCLID sem referer Google válido | Ref: 
+[2026-02-17 08:51:39] ADMIN_ACCESS | IP: 2804:d59:b300:9b00:bcc6:5f09:f67e:4c5c | Geo: BR/Goiânia | Ref: https://googleads.g.doubleclick.net/ | Info: Acesso administrativo

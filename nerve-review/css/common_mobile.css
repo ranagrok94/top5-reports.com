@@ -1,0 +1,39 @@
+.calification-progress, .pros-cons-container, .btn-container, .header-product {
+  margin: 0;
+}
+.analysis {
+  display: none;
+}
+.analysis_mobile {
+  display: block;
+}
+.margin-cta-analysis {
+  margin-top: 0;
+}
+.stars-container {
+  position: relative;
+  height: 25px;
+  /* width: 90px; */
+  width: 100%;
+  margin: 9% auto 0;
+}
+.comparasion-container .box-vote .stars-container {
+  height: auto;
+  margin: 0 20px;
+}
+.color-stars {
+  position: absolute;
+  top: 6px;
+  left: 2.7px;
+  height: 25px;
+  overflow: hidden;
+  color: #efc529;
+  text-align: left;
+  white-space: nowrap;
+}
+.color-stars .fa {
+  color: #efc529;
+}
+.pop-up-footer {
+  display: block;
+}
