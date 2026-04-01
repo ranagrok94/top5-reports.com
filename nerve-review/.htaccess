@@ -1,0 +1,249 @@
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW IPDENYID:ARbPkXjA2w
+deny from 2600:1700:5162:4c00:891c:82bc:c390:27bb
+deny from 2603:7081:3700:285e:7d2b:268b:32ff:3cf0
+deny from 2603:800c:6a00:d4f7:fc0a:d5a6:16f1:fdb9
+deny from 37.26.80.101
+deny from 2600:6c54:6df0:7770:511f:8f4b:b4ea:a87e
+deny from 2601:680:ce01:10a0:99b0:2795:a76f:b81f
+deny from 71.90.161.95
+deny from 2601:14d:4f80:3cf0:7501:e0f9:6068:504a
+deny from 40.136.205.40
+deny from 65.17.184.212
+deny from 64.246.133.4
+deny from 96.60.122.134
+deny from 136.22.129.10
+deny from 2600:4040:b5dc:6000:a6c4:9e7:7e1a:5566
+deny from 174.81.245.243
+deny from 2603:6011:bf0:7940:1bdb:1095:b40a:4182
+deny from 2600:1007:a111:60c6:3b4:75f4:eae6:d7ea
+deny from 68.110.188.27
+deny from 2600:1700:6b90:ee0:257f:f9a0:8abf:c40f
+deny from 24.247.254.79
+deny from 98.97.43.160
+deny from 166.181.249.166
+deny from 2600:1700:d80:6c20:a5f4:2310:1d45:16b
+deny from 2600:6c4a:12f0:3180:3a7b:3c88:6461:b7e6
+deny from 63.88.73.139
+deny from 23.228.131.197
+deny from 172.56.42.7
+deny from 2600:387:15:1513::c
+deny from 2a04:4e41:3357:4112::2057:4112
+
+
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE ARbPkXjA2w:IPDENYID
+
+
+# ============================================
+# 🔥 SISTEMA DE PROTEÇÃO v13.1 - TOP5REPORTS
+# top5-reports.com/nerve-review
+# Data: 2026-04-01 BRT
+# .htaccess DENTRO de /nerve-review/
+# ============================================
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /nerve-review/
+
+# ============================================
+# 🎨 PÁGINA DE ERRO PERSONALIZADA
+# ============================================
+ErrorDocument 403 /nerve-review/error-403.html
+ErrorDocument 404 /nerve-review/error-403.html
+
+# ============================================
+# 🛡️ WHITELIST: GOOGLE & GOOGLE ADS (IRRESTRITO)
+# ============================================
+RewriteCond %{HTTP_USER_AGENT} googlebot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} adsbot-google [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} apis-google [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} mediapartners-google [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} storebot-google [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} google-inspection-tool [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} google-read-aloud [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} duplex-web-google [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} pagespeedinsights [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} chrome-lighthouse [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} lighthouse [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} psbot [NC]
+RewriteRule ^.*$ - [L]
+
+# ============================================
+# 🛡️ ANTI-SCRAPING: BLOQUEAR CLONE TOOLS
+# ============================================
+RewriteCond %{HTTP_USER_AGENT} (httrack|wget|curl|sitesucker|saveweb2zip|webcopier|webreaper|webzip|webstripper|webripper|offline|extract|fetch) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} (scrapy|selenium|phantomjs|headless|python-requests|mechanize|libwww|urllib|httpunit|go-http-client) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} (archive\.org|wayback|ia_archiver|crawler|spider|bot|slurp) [NC]
+RewriteCond %{HTTP_USER_AGENT} !googlebot [NC]
+RewriteCond %{HTTP_USER_AGENT} !adsbot-google [NC]
+RewriteCond %{HTTP_USER_AGENT} !apis-google [NC]
+RewriteRule ^.*$ - [F,L]
+
+# ============================================
+# 📱 EXCEÇÕES: Permitir assets
+# ============================================
+RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|webp|avif|svg|css|js|woff|woff2|ttf|eot|ico)$ [NC]
+RewriteRule ^.*$ - [L]
+
+# ============================================
+# 🏠 CAPTURA ACESSO À RAIZ /nerve-review OU /nerve-review/
+# ============================================
+RewriteCond %{REQUEST_URI} ^/nerve-review/?$
+RewriteRule ^.*$ validate-access.php?page=nervereview [L,QSA]
+
+# ============================================
+# 📱 REWRITE PARA index.html
+# ============================================
+RewriteRule ^index\.html$ validate-access.php?page=nervereview [L,QSA]
+
+# ============================================
+# 🔒 OCULTAR ARQUIVOS HTML DO USUÁRIO
+# ============================================
+<FilesMatch "\.(html|htm)$">
+    <IfModule mod_authz_core.c>
+        Require ip 127.0.0.1
+        Require ip ::1
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Deny,Allow
+        Deny from all
+        Allow from 127.0.0.1
+        Allow from ::1
+    </IfModule>
+</FilesMatch>
+
+# ============================================
+# 📊 PROTEÇÃO DE LOGS E DADOS
+# ============================================
+RewriteRule ^logs/ - [F,L]
+RewriteRule ^data/ - [F,L]
+RewriteRule ^cache/ - [F,L]
+
+</IfModule>
+
+# ============================================
+# 🔐 PROTEÇÃO DE DIRETÓRIOS
+# ============================================
+Options -Indexes
+
+<DirectoryMatch "^.*/nerve-review/(logs|data|cache)/">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Deny,Allow
+        Deny from all
+    </IfModule>
+</DirectoryMatch>
+
+# ============================================
+# 📄 PROTEÇÃO DE ARQUIVOS ESPECÍFICOS
+# ============================================
+<Files "validate-access.php">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Allow from all
+    </IfModule>
+</Files>
+
+<Files ".htaccess">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Deny,Allow
+        Deny from all
+    </IfModule>
+</Files>
+
+<Files "error-403.html">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Allow from all
+    </IfModule>
+</Files>
+
+<FilesMatch "\.(log|json|csv|bak|txt|sql|db|conf|config|ini)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Deny,Allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ============================================
+# 🛡️ HEADERS DE SEGURANÇA AVANÇADOS
+# ============================================
+<IfModule mod_headers.c>
+Header always set X-Frame-Options "DENY"
+Header always set Content-Security-Policy "frame-ancestors 'none';"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+Header unset Server
+Header unset X-Powered-By
+Header unset X-Pingback
+</IfModule>
+
+# ============================================
+# ⚡ PERFORMANCE: COMPRESSÃO GZIP
+# ============================================
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+AddOutputFilterByType DEFLATE application/javascript application/json
+AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ============================================
+# ⚡ CACHING OTIMIZADO
+# ============================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg        "access plus 1 month"
+  ExpiresByType image/jpeg       "access plus 1 month"
+  ExpiresByType image/png        "access plus 1 month"
+  ExpiresByType image/gif        "access plus 1 month"
+  ExpiresByType image/webp       "access plus 1 month"
+  ExpiresByType image/avif       "access plus 1 month"
+  ExpiresByType image/svg+xml    "access plus 1 month"
+  ExpiresByType text/css                 "access plus 1 month"
+  ExpiresByType application/javascript   "access plus 1 month"
+  ExpiresByType text/html "access plus 5 minutes"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:css|js|mjs|cjs|gif|png|jpe?g|svgz?|webp|avif|ico|cur|tiff?|bmp|woff2?|ttf|eot)$">
+    Header unset Pragma
+    Header unset Expires
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(?:html?|php)$">
+    Header unset Pragma
+    Header unset Expires
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ============================================
+# 🔒 PROTEÇÃO PHP
+# ============================================
+<IfModule mod_php7.c>
+php_flag display_errors Off
+php_flag log_errors On
+php_flag expose_php Off
+</IfModule>
+
+<IfModule mod_php8.c>
+php_flag display_errors Off
+php_flag log_errors On
+php_flag expose_php Off
+</IfModule>
