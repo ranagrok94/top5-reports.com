@@ -1843,12 +1843,12 @@
   initial-value: #0000;
 }
 @property --tw-gradient-via {
-  syntax: "</color><color>";
+  syntax: "<color>";
   inherits: false;
   initial-value: #0000;
 }
 @property --tw-gradient-to {
-  syntax: "</color><color>";
+  syntax: "<color>";
   inherits: false;
   initial-value: #0000;
 }
@@ -1866,12 +1866,12 @@
   initial-value: 0%;
 }
 @property --tw-gradient-via-position {
-  syntax: "</length-percentage><length-percentage>";
+  syntax: "<length-percentage>";
   inherits: false;
   initial-value: 50%;
 }
 @property --tw-gradient-to-position {
-  syntax: "</length-percentage><length-percentage>";
+  syntax: "<length-percentage>";
   inherits: false;
   initial-value: 100%;
 }
@@ -1911,7 +1911,7 @@
   inherits: false;
 }
 @property --tw-inset-shadow-alpha {
-  syntax: "</percentage><percentage>";
+  syntax: "<percentage>";
   inherits: false;
   initial-value: 100%;
 }
@@ -1997,7 +1997,7 @@
   inherits: false;
 }
 @property --tw-drop-shadow-alpha {
-  syntax: "</length></percentage><percentage>";
+  syntax: "<percentage>";
   inherits: false;
   initial-value: 100%;
 }
@@ -2093,4 +2093,3 @@
     }
   }
 }
-</percentage></length-percentage></color>
