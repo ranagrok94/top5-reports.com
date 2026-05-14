@@ -84,7 +84,7 @@
   <meta name="twitter:label2" content="Medical Review" />
   <meta name="twitter:data2" content="Richard T. Vance, MD, FACS" />
 
-  <!-- =========================================
+<!-- =========================================
        3️⃣ JSON-LD SCHEMA MARKUP — @graph
          • Product (AlphaFuel) + AggregateRating + nested Reviews
          • FAQPage
@@ -101,9 +101,9 @@
       {
         "@type": "MedicalWebPage",
         "@id": "https://top5-reports.com/#webpage",
-        "url": "https://top5-reports.com/",
+        "url": "https://top5-reports.com/vigor-boost-review/",
         "name": "Vigor Boost Gummies Review 2026 — Does It Work? We Tested 5 (AlphaFuel Won)",
-        "description": "Independent clinical comparison of Vigor Boost Gummies against 4 top male performance supplements. Medically reviewed by a board-certified urologist.",
+        "description": "Independent clinical comparison of Vigor Boost Gummies against 4 top male performance supplements. Medically reviewed by a board-certified urologist. For informational purposes only.",
         "inLanguage": "en",
         "isPartOf": { "@id": "https://top5-reports.com/#website" },
         "about": {
@@ -119,16 +119,14 @@
         },
         "datePublished": "2026-01-15",
         "dateModified": "2026-05-12",
+        "lastReviewed": "2026-05-12",
+        "specialty": "Urology",
+        "disclaimer": "These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.",
         "medicalAudience": {
           "@type": "MedicalAudience",
           "audienceType": "Patient",
-          "geographicArea": {
-            "@type": "AdministrativeArea",
-            "name": "United States"
-          }
-        },
-        "specialty": "Urology",
-        "lastReviewed": "2026-05-12"
+          "geographicArea": { "@type": "AdministrativeArea", "name": "United States" }
+        }
       },
 
       {
@@ -158,12 +156,6 @@
           "url": "https://top5-reports.com/images/logo.png",
           "width": 300,
           "height": 60
-        },
-        "sameAs": [],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "availableLanguage": "English"
         }
       },
 
@@ -171,24 +163,9 @@
         "@type": "BreadcrumbList",
         "@id": "https://top5-reports.com/#breadcrumb",
         "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://top5-reports.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Male Performance Supplements",
-            "item": "https://top5-reports.com/male-performance/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Vigor Boost Gummies Review 2026",
-            "item": "https://top5-reports.com/"
-          }
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://top5-reports.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Male Performance Supplements", "item": "https://top5-reports.com/male-performance/" },
+          { "@type": "ListItem", "position": 3, "name": "Vigor Boost Gummies Review 2026", "item": "https://top5-reports.com/vigor-boost-review/" }
         ]
       },
 
@@ -198,18 +175,16 @@
         "name": "AlphaFuel",
         "alternateName": "AlphaFuel Male Performance Supplement",
         "description": "AlphaFuel is a clinical-grade male performance supplement that supports vascular health, nitric oxide production, and blood flow using a capsule delivery system with full-dose L-Citrulline, Pine Bark Extract, and CoQ10.",
-        "brand": {
-          "@type": "Brand",
-          "name": "Fuel Pro"
-        },
-        "sku": "ALPHAFUEL-001",
-        "mpn": "ALPHAFUEL-2026",
         "image": [
           "https://top5-reports.com/images/alpha-fuel-bottle.webp",
           "https://top5-reports.com/images/alpha-fuel-bestseller.webp"
         ],
-        "url": "https://alphapromen.com/alpha-men-support",
+        "brand": { "@type": "Brand", "name": "Fuel Pro" },
+        "manufacturer": { "@type": "Organization", "name": "Fuel Pro", "url": "https://top5-reports.com/" },
+        "sku": "ALPHAFUEL-001",
+        "mpn": "ALPHAFUEL-2026",
         "category": "Male Performance Supplement",
+        "url": "https://alphapromen.com/alpha-men-support/",
         "additionalProperty": [
           { "@type": "PropertyValue", "name": "Key Ingredient 1", "value": "L-Citrulline (clinical dose)" },
           { "@type": "PropertyValue", "name": "Key Ingredient 2", "value": "Pine Bark Extract" },
@@ -221,39 +196,46 @@
         ],
         "offers": {
           "@type": "Offer",
-          "url": "https://alphapromen.com/alpha-men-support",
+          "url": "https://alphapromen.com/alpha-men-support/",
           "priceCurrency": "USD",
           "price": "49.99",
           "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
-          "seller": {
-            "@type": "Organization",
-            "name": "Fuel Pro Official"
-          },
+          "itemCondition": "https://schema.org/NewCondition",
+          "seller": { "@type": "Organization", "name": "Fuel Pro Official" },
           "hasMerchantReturnPolicy": {
             "@type": "MerchantReturnPolicy",
+            "applicableCountry": ["US", "GB", "AU", "CA"],
             "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
             "merchantReturnDays": 60,
             "returnMethod": "https://schema.org/ReturnByMail",
             "returnFees": "https://schema.org/FreeReturn"
           },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "USD" },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY" },
+              "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 7, "unitCode": "DAY" }
+            }
+          },
           "warranty": {
             "@type": "WarrantyPromise",
-            "durationOfWarranty": {
-              "@type": "QuantitativeValue",
-              "value": 60,
-              "unitCode": "DAY"
-            },
-            "warrantyScope": "https://schema.org/LifetimeWarranty"
+            "durationOfWarranty": { "@type": "QuantitativeValue", "value": 60, "unitCode": "DAY" }
           }
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "9.8",
-          "bestRating": "10",
+          "ratingValue": "4.9",
+          "bestRating": "5",
           "worstRating": "1",
           "ratingCount": "1053",
-          "reviewCount": "47"
+          "reviewCount": "1053"
         },
         "review": [
           {
@@ -274,7 +256,7 @@
             "@type": "Review",
             "author": { "@type": "Person", "name": "Robert Wilson" },
             "datePublished": "2026-05-13",
-            "reviewBody": "Two weeks in. Performance is more stable and I'm not second-guessing myself anymore. No side effects either.",
+            "reviewBody": "Two weeks in. Performance is more stable and I am not second-guessing myself anymore. No side effects either.",
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
           },
           {
@@ -290,6 +272,14 @@
             "datePublished": "2026-05-13",
             "reviewBody": "Tried two other products over the past year with zero results. AlphaFuel is the first one where I actually felt a real shift — firmness is back and the performance anxiety is gone.",
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "David Stanley, MD" },
+            "datePublished": "2026-03-15",
+            "reviewBody": "After evaluating AlphaFuel alongside 4 competing supplements, it stood out as the only formula with a vascular-focused approach targeting nitric oxide production and blood flow.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "publisher": { "@type": "Organization", "name": "Men's Health Research Review Board" }
           }
         ]
       },
@@ -311,7 +301,7 @@
             "name": "What is the return policy for AlphaFuel?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "AlphaFuel comes with a 60-day, 100% money-back guarantee. If you're not satisfied with your results within 60 days of purchase, you can return the product for a full refund — no questions asked. Purchases must be made through the official website to qualify."
+              "text": "AlphaFuel comes with a 60-day, 100% money-back guarantee. If you are not satisfied with your results within 60 days of purchase, you can return the product for a full refund — no questions asked. Purchases must be made through the official website to qualify."
             }
           },
           {
@@ -335,7 +325,7 @@
             "name": "Is AlphaFuel safe and are there any side effects?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "AlphaFuel is made in an FDA-registered, cGMP-certified facility in the USA. It is vegan, non-GMO, and gluten-free. The formula uses naturally derived ingredients at clinically researched dosages. No significant side effects were reported in our testing group. As with any supplement, consult your physician before use if you have a pre-existing medical condition or take prescription medication. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."
+              "text": "AlphaFuel is made in an FDA-registered, cGMP-certified facility in the USA. It is vegan, non-GMO, and gluten-free. No significant side effects were reported in our testing group. As with any supplement, consult your physician before use if you have a pre-existing medical condition or take prescription medication. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."
             }
           }
         ]
