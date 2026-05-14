@@ -43,18 +43,12 @@
   <meta name="twitter:description" content="We tested 5 male performance supplements. AlphaFuel dominated on blood flow, stamina & firmness. 94% satisfaction rate. See full review." />
   <meta name="twitter:image" content="https://yourdomain.com/images/alphafuel-review-2026-og.jpg" />
 
-  <!-- =========================================
-       3️⃣ PERFORMANCE — Font preloads (apenas os 2 mais críticos)
-  ========================================== -->
-  <link rel="preload" href="fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-v20-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- Hero image preload: mobile-first para LCP -->
-  <link rel="preload" as="image"
-        href="images/top5-premium-mob.webp"
-        imagesrcset="images/top5-premium-mob.webp 606w, images/top5-premium.webp 1212w"
-        imagesizes="(max-width: 768px) 100vw, 650px"
-        fetchpriority="high" />
+<link rel="preload" href="fonts/inter-v20-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- =========================================
+       3️⃣ PERFORMANCE — Preconnect / DNS-Prefetch / Preload
+  ========================================== -->
+<link rel="preload" as="image" href="images/top5-premium.webp" fetchpriority="high" />
   <!-- CSS Original Preservado -->
   <!-- ESTE PASSO É CRUCIAL: Devemos manter todo o CSS que estava no head original -->
   <style id="critical-css">
@@ -711,9 +705,9 @@ ul.ratings li > p {
 
 <!-- Top Banner -->
 <div class="w-full bg-brand-blue text-white text-center py-3 px-4 shadow-sm">
-    <p class="font-condensed font-extrabold text-[30px] md:text-[50px] leading-[1.1] tracking-tight">
+    <h2 class="font-condensed font-extrabold text-[30px] md:text-[50px] leading-[1.1] tracking-tight">
         WE TESTED <span class="text-[#c0392b]">VIGOR BOOST GUMMIES</span> AGAINST 4 TOP ED SUPPLEMENTS
-    </p>
+    </h2>
 </div>
 
 <!-- MAIN WRAPPER: Largura exata ajustada para 1000px garantindo as margens laterais ideias -->
@@ -758,10 +752,8 @@ ul.ratings li > p {
             <div class="relative w-[70px] h-[70px] md:w-[85px] md:h-[85px] rounded-full flex items-center justify-center shrink-0 p-[2px] bg-gradient-to-br from-[#d4af37] to-[#aa7c11] shadow-lg">
                 <div class="w-full h-full rounded-full overflow-hidden border-[3px] border-[#0d1a33] bg-gray-300">
                     <picture class="w-full h-full block rounded-full">
-  <source media="(max-width: 768px)" srcset="images/dr-richard-vance-mob.webp" width="70" height="70">
-  <img src="images/dr-richard-vance.webp" alt="Richard T. Vance, MD, FACS" width="105" height="127"
-       loading="lazy" decoding="async"
-       class="w-full h-full object-cover rounded-full">
+  <source media="(max-width: 768px)" srcset="images/dr-richard-vance-mob.webp">
+  <img src="images/dr-richard-vance.webp" alt="Richard T. Vance, MD, FACS" width="105" height="127" class="w-full h-full object-cover rounded-full">
 </picture>
                 </div>
             </div>
@@ -887,11 +879,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="max-w-[650px] mx-auto mb-10 relative px-4 md:px-0">
     <div class="w-full rounded-2xl border border-gray-800 overflow-hidden relative bg-[#0a0c10]">
         <picture class="w-full h-auto block">
-  <source media="(max-width: 768px)" srcset="images/top5-premium-mob.webp" width="606" height="452">
-  <img src="images/top5-premium.webp" alt="Top 5 Male Performance Supplements" width="606" height="452"
-       fetchpriority="high" decoding="sync" loading="eager"
-       sizes="(max-width: 768px) calc(100vw - 32px), 606px"
-       class="w-full h-auto block">
+  <source media="(max-width: 768px)" srcset="images/top5-premium-mob.webp">
+  <img src="images/top5-premium.webp" alt="Top 5 Male Performance Supplements" width="606" height="452" class="w-full h-auto block">
 </picture>
         <div class="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.9)] pointer-events-none"></div>
     </div>
@@ -910,11 +899,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <div class="w-full rounded-2xl border border-gray-800 overflow-hidden relative bg-[#0a0c10]">
         <picture class="w-full h-auto block">
-  <source media="(max-width: 768px)" srcset="images/her-eyes-mob.webp" width="662" height="230">
-  <img src="images/her-eyes.webp" alt="Couple relationship stress" width="662" height="230"
-       loading="lazy" decoding="async"
-       sizes="(max-width: 768px) calc(100vw - 32px), 832px"
-       class="w-full h-auto block">
+  <source media="(max-width: 768px)" srcset="images/her-eyes-mob.webp">
+  <img src="images/her-eyes.webp" alt="Top 5 Male Performance Supplements" width="662" height="230" class="w-full h-auto block">
 </picture>
         <div class="absolute inset-0 shadow-[inset_0_0_30px_rgba(0,0,0,0.9)] pointer-events-none"></div>
     </div>
@@ -963,7 +949,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </h2>
 
     <div class="w-full rounded-xl shadow-md border border-gray-300 overflow-hidden mb-10 relative flex items-center justify-center bg-gray-100">
-        <img width="1024" height="683" loading="lazy" decoding="async" src="images/Discovery-Male-Disfuncion-1-1024x683.webp" alt="Scientific Breakthrough in Male Performance" sizes="(max-width: 768px) calc(100vw - 32px), 868px" class="w-full h-auto object-cover object-center max-h-[300px] md:max-h-[700px]">
+        <img width="1024" height="683" loading="lazy" src="images/Discovery-Male-Disfuncion-1-1024x683.webp" alt="Scientific Breakthrough in Male Performance" class="w-full h-auto object-cover object-center max-h-[300px] md:max-h-[700px]">
     </div>
 
     <div class="text-[16px] md:text-[18px] leading-[1.6] md:leading-[1.77em] space-y-6 text-[#374151] mb-16">
@@ -982,7 +968,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Coluna da Esquerda (Imagem) -->
     <div class="w-full md:w-[45%] shrink-0">
         <div class="w-full rounded-xl shadow-sm border border-gray-200 overflow-hidden bg-gray-50 flex items-center justify-center">
-            <img width="1536" height="1281" loading="lazy" decoding="async" src="images/DMartinez-VenousLeak-1536x1281.webp" alt="Anatomy of Penile Blood Vessels" sizes="(max-width: 768px) 100vw, 400px" class="w-full h-auto object-contain">
+            <img width="1536" height="1281" loading="lazy" src="images/DMartinez-VenousLeak-1536x1281.webp" alt="Anatomy of Penile Blood Vessels" sizes="(max-width: 768px) 100vw, 662px" class="w-full h-auto object-contain">
         </div>
     </div>
 
@@ -1808,9 +1794,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <!-- COLUNA 1: Frasco com selos -->
             <div class="flex items-center justify-center shrink-0">
-                <img width="600" height="800" loading="lazy" decoding="async" src="images/alpha-fuel-bestseller.webp" 
+                <img width="600" height="800" src="images/alpha-fuel-bestseller.webp" 
                      alt="AlphaFuel Best Seller" 
-                     sizes="(max-width: 768px) 220px, 260px"
                      class="w-full max-w-[220px] md:max-w-[260px] h-auto object-contain mix-blend-multiply">
             </div>
 
@@ -1860,7 +1845,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 1 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/32.jpg" alt="Mike Johnson" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/32.jpg" alt="Mike Johnson" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">Mike Johnson <span class="text-[#1877f2] font-normal ml-1">✓</span></div>
@@ -1872,7 +1857,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 2 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/45.jpg" alt="David Martinez" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/45.jpg" alt="David Martinez" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">David Martinez</div>
@@ -1884,7 +1869,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 3 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/67.jpg" alt="John McGrath" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/67.jpg" alt="John McGrath" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">John McGrath <span class="text-[#1877f2] font-normal ml-1">✓</span></div>
@@ -1896,7 +1881,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 4 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/28.jpg" alt="Sarah Thompson" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/28.jpg" alt="Sarah Thompson" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">Samuel T. ✓</div>
@@ -1908,7 +1893,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 5 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/23.jpg" alt="Robert Wilson" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/23.jpg" alt="Robert Wilson" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">Robert Wilson <span class="text-[#1877f2] font-normal ml-1">✓</span></div>
@@ -1920,7 +1905,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 6 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/44.jpg" alt="Daniel R." class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/44.jpg" alt="Daniel R." class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">Daniel R. <span class="text-[#1877f2] font-normal ml-1">✓</span></div>
@@ -1932,7 +1917,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 7 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/78.jpg" alt="Chris Anderson" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/78.jpg" alt="Chris Anderson" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">Chris Anderson</div>
@@ -1944,7 +1929,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 8 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/56.jpg" alt="Mark Rodriguez" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/56.jpg" alt="Mark Rodriguez" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">Mark Rodriguez <span class="text-[#1877f2] font-normal ml-1">✓</span></div>
@@ -1956,7 +1941,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 9 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/35.jpg" alt="Thomas W." class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/35.jpg" alt="Thomas W." class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">Thomas W. <span class="text-[#1877f2] font-normal ml-1">✓</span></div>
@@ -1968,7 +1953,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 10 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/41.jpg" alt="James Mitchell" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/41.jpg" alt="James Mitchell" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">James Mitchell <span class="text-[#1877f2] font-normal ml-1">✓</span></div>
@@ -1980,7 +1965,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 11 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/73.jpg" alt="George Taylor" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/73.jpg" alt="George Taylor" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">George Taylor</div>
@@ -1992,7 +1977,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 12 -->
     <div class="flex gap-4 mb-6 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/29.jpg" alt="Kevin Brown" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/29.jpg" alt="Kevin Brown" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">Kevin Brown <span class="text-[#1877f2] font-normal ml-1">✓</span></div>
@@ -2004,7 +1989,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Comentário 13 -->
     <div class="flex gap-4 mb-10 border-b border-gray-100 pb-6">
         <div class="w-[50px] h-[50px] rounded-full bg-gray-300 shrink-0 flex items-center justify-center overflow-hidden">
-            <img loading="lazy" decoding="async" src="images/84.jpg" alt="Alex Turner" class="w-full h-full object-cover">
+            <img loading="lazy" decoding="async" decoding="async" src="images/84.jpg" alt="Alex Turner" class="w-full h-full object-cover">
         </div>
         <div class="flex-1">
             <div class="font-bold text-[14px] text-[#004aad] mb-1">Alex Turner <span class="text-[#1877f2] font-normal ml-1">✓</span></div>
@@ -2031,7 +2016,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ">
     <div class="max-w-[1000px] mx-auto px-4 flex justify-center items-center">
         <!-- A imagem única com todos os logos -->
-        <img loading="lazy" decoding="async" width="1024" height="76" 
+        <img loading="lazy" decoding="async" decoding="async" width="1024" height="76" 
              src="images/refs-logos-scaled-1-1024x76.webp" 
              class="w-full max-w-[800px] h-auto object-contain mix-blend-multiply opacity-80 hover:opacity-100 transition-opacity duration-300" 
              alt="Featured in Frontiers, Healthline, ScienceDirect, Journal of Urology" 
@@ -2045,7 +2030,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         <!-- Imagem FDA / cGMP (Menor e centralizada) -->
         <div class="flex justify-center">
-            <img loading="lazy" decoding="async" width="245" height="117" src="images/fda-gmp.webp" alt="FDA and GMP Certified" class="w-full max-w-[150px] h-auto object-contain opacity-70">
+            <img loading="lazy" decoding="async" decoding="async" width="245" height="117" src="images/fda-gmp.webp" alt="FDA and GMP Certified" class="w-full max-w-[150px] h-auto object-contain opacity-70">
         </div>
         
         <!-- Textos e Links (Espaçamento reduzido) -->
@@ -2149,6 +2134,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 </script>
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5284WH7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <script>
