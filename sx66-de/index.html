@@ -858,7 +858,11 @@ document.addEventListener('DOMContentLoaded', function() {
     </h2>
 
     <div class="w-full rounded-xl shadow-md border border-gray-300 overflow-hidden mb-10 relative flex items-center justify-center bg-gray-100">
-        <img width="1024" height="683" loading="lazy" decoding="async" src="images/Discovery-Male-Disfuncion-1-1024x683.webp" fetchpriority="low" alt="Scientific Breakthrough in Male Performance" sizes="(max-width: 768px) calc(100vw - 32px), 868px" class="w-full h-auto object-cover object-center max-h-[300px] md:max-h-[700px]">
+        <picture class="w-full block">
+    <source media="(max-width: 768px)" srcset="images/Discovery-Male-Disfuncion-mob.webp" width="662" height="441">
+    
+    <img width="1024" height="683" loading="lazy" src="images/Discovery-Male-Disfuncion-1-1024x683.webp" alt="Scientific Breakthrough in Male Performance" class="w-full h-auto object-cover object-center max-h-[300px] md:max-h-[700px]">
+</picture>
     </div>
 
     <div class="text-[16px] md:text-[18px] leading-[1.6] md:leading-[1.77em] space-y-6 text-[#374151] mb-16">
