@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top5 Reports – Honest Product Reviews & Consumer Guides</title>
+  <meta name="description" content="Independent, in-depth product reviews and consumer guides to help you make smarter purchasing decisions." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #1b2e42;
+      --navy-light: #2c4a63;
+      --gold: #c8922a;
+      --gold-light: #e8b857;
+      --cream: #faf8f3;
+      --cream-dark: #f0ece0;
+      --white: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a5568;
+      --text-muted: #718096;
+      --border: #e2ddd4;
+      --success: #2d7d4f;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.65; font-size: 16px; }
+
+    /* PAGE TRANSITIONS */
+    #app { animation: fadeIn .25s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* TOP BAR */
+    .topbar { background: var(--navy); color: rgba(255,255,255,0.7); font-size: 12px; text-align: center; padding: 7px 20px; letter-spacing: .03em; }
+    .topbar a { color: var(--gold-light); text-decoration: none; }
+
+    /* HEADER */
+    header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 32px; height: 64px; }
+    .logo { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--navy); text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    .logo span { color: var(--gold); }
+    nav { display: flex; gap: 28px; align-items: center; flex: 1; }
+    nav a { font-size: 14px; font-weight: 500; color: var(--text-mid); text-decoration: none; transition: color .2s; cursor: pointer; }
+    nav a:hover { color: var(--navy); }
+    .nav-cta { margin-left: auto; background: var(--gold); color: var(--white) !important; padding: 8px 20px; border-radius: 6px; font-size: 13px !important; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; border-radius: 2px; }
+    .mobile-nav { display: none; background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 12px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 15px; font-weight: 500; color: var(--text-mid); text-decoration: none; padding: 8px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1e3a52 100%); padding: 80px 24px 90px; text-align: center; position: relative; overflow: hidden; }
+    .hero-content { position: relative; max-width: 700px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(200,146,42,.2); border: 1px solid rgba(200,146,42,.4); color: var(--gold-light); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 24px; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem,5vw,3.2rem); color: var(--white); line-height: 1.2; margin-bottom: 20px; }
+    .hero h1 em { color: var(--gold-light); font-style: italic; }
+    .hero > .hero-content > p { font-size: 18px; color: rgba(255,255,255,.75); max-width: 540px; margin: 0 auto 36px; }
+    .hero-search { display: flex; gap: 0; max-width: 480px; margin: 0 auto 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.3); }
+    .hero-search input { flex: 1; padding: 14px 20px; border: none; font-family: 'DM Sans', sans-serif; font-size: 15px; outline: none; background: var(--white); color: var(--text-dark); }
+    .hero-search button { background: var(--gold); border: none; color: var(--white); padding: 14px 24px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .hero-search button:hover { background: var(--gold-light); }
+    .hero-note { color: rgba(255,255,255,.45); font-size: 12px; }
+    .hero-stats { display: flex; justify-content: center; gap: 40px; margin-top: 52px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--white); }
+    .hero-stat span { color: rgba(255,255,255,.55); font-size: 13px; }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 24px; }
+    .trust-inner { max-width: 1140px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 36px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-mid); }
+    .trust-icon { font-size: 16px; color: var(--gold); }
+
+    /* DISCLOSURE */
+    .disclosure { background: #fffbeb; border: 1px solid #fcd34d; border-left: 4px solid var(--gold); border-radius: 8px; padding: 16px 20px; font-size: 14px; color: #78350f; max-width: 1140px; margin: 0 auto; }
+    .disclosure strong { display: block; margin-bottom: 4px; }
+
+    /* SECTIONS */
+    section { padding: 72px 24px; }
+    .section-inner { max-width: 1140px; margin: 0 auto; }
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,3vw,2.3rem); color: var(--navy); line-height: 1.25; margin-bottom: 12px; }
+    .section-sub { color: var(--text-muted); font-size: 16px; max-width: 540px; margin-bottom: 48px; }
+
+    /* CATEGORIES */
+    .cats-bg { background: var(--cream); }
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 16px; }
+    .cat-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 24px 16px; text-align: center; text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; }
+    .cat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(13,27,42,.1); border-color: var(--gold); }
+    .cat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+    .cat-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .cat-count { font-size: 12px; color: var(--text-muted); }
+
+    /* REVIEWS */
+    .reviews-bg { background: var(--white); }
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 28px; }
+    .review-card { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; cursor: pointer; }
+    .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(13,27,42,.12); }
+    .review-img { height: 180px; background: var(--navy-mid); display: flex; align-items: center; justify-content: center; font-size: 56px; }
+    .review-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .review-tags { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    .tag { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: 3px 10px; border-radius: 100px; }
+    .tag-cat { background: #e8f0fe; color: #1a56db; }
+    .tag-new { background: #fef3c7; color: #92400e; }
+    .tag-top { background: #d1fae5; color: #065f46; }
+    .review-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+    .review-excerpt { font-size: 14px; color: var(--text-mid); margin-bottom: 14px; flex: 1; }
+    .stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 4px; }
+    .review-meta { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 12px; margin-top: 12px; }
+    .read-more { font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; cursor: pointer; }
+    .read-more:hover { color: var(--navy); }
+
+    /* HOW WE REVIEW */
+    .how-bg { background: var(--cream-dark); }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 32px; }
+    .step { text-align: center; padding: 8px; }
+    .step-num { width: 52px; height: 52px; background: var(--gold); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 22px; margin: 0 auto 16px; }
+    .step h3 { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--text-mid); }
+
+    /* TESTIMONIALS */
+    .testi-bg { background: var(--navy); }
+    .testi-bg .section-label { color: var(--gold-light); }
+    .testi-bg .section-title { color: var(--white); }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 24px; }
+    .testi-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 24px; }
+    .testi-stars { color: var(--gold-light); margin-bottom: 12px; }
+    .testi-text { font-size: 15px; color: rgba(255,255,255,.85); margin-bottom: 16px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 10px; }
+    .testi-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--gold); color: var(--white); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .testi-name { font-size: 14px; font-weight: 600; color: var(--white); }
+    .testi-loc { font-size: 12px; color: rgba(255,255,255,.45); }
+
+    /* NEWSLETTER */
+    .nl-bg { background: var(--cream); }
+    .nl-box { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 48px 40px; text-align: center; max-width: 580px; margin: 0 auto; }
+    .nl-box .section-title { margin-bottom: 8px; }
+    .nl-box p { color: var(--text-muted); margin-bottom: 28px; }
+    .nl-form { display: flex; gap: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); max-width: 420px; margin: 0 auto 12px; }
+    .nl-form input { flex: 1; padding: 13px 16px; border: none; font-family: 'DM Sans', sans-serif; font-size: 15px; outline: none; background: var(--cream); }
+    .nl-form button { background: var(--gold); border: none; color: var(--white); padding: 13px 22px; font-family: 'DM Sans', sans-serif; font-weight: 600; cursor: pointer; font-size: 14px; }
+    .nl-form button:hover { background: var(--navy); }
+    .nl-note { font-size: 12px; color: var(--text-muted); }
+    .form-msg { margin-top: 10px; font-size: 13px; min-height: 18px; }
+    .form-msg.ok { color: var(--success); }
+    .form-msg.err { color: #b91c1c; }
+
+    /* CONTACT FORM */
+    .field-style { padding: 13px 16px; border: 1px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 15px; background: var(--cream); width: 100%; outline: none; transition: border-color .2s; }
+    .field-style:focus { border-color: var(--gold); }
+
+    /* LEGAL / INNER PAGES */
+    .page-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 60px 24px; text-align: center; }
+    .page-hero .section-label { color: var(--gold-light); }
+    .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem,4vw,2.8rem); color: var(--white); line-height: 1.2; margin-bottom: 12px; }
+    .page-hero p { color: rgba(255,255,255,.65); font-size: 16px; max-width: 540px; margin: 0 auto; }
+    .prose { max-width: 720px; margin: 0 auto; }
+    .prose h2 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--navy); margin: 32px 0 12px; }
+    .prose p { color: var(--text-mid); margin-bottom: 16px; line-height: 1.75; }
+    .prose ul { color: var(--text-mid); padding-left: 20px; margin-bottom: 16px; }
+    .prose li { margin-bottom: 8px; line-height: 1.7; }
+    .prose a { color: var(--gold); text-decoration: none; }
+    .prose a:hover { color: var(--navy); }
+
+    /* GUIDES */
+    .guide-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 28px; display: flex; gap: 20px; align-items: flex-start; transition: box-shadow .2s; }
+    .guide-card:hover { box-shadow: 0 8px 24px rgba(13,27,42,.1); }
+    .guide-icon { font-size: 36px; flex-shrink: 0; }
+    .guide-cat { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: 3px 10px; border-radius: 100px; background: #e8f0fe; color: #1a56db; margin-bottom: 8px; }
+    .guide-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+    .guide-excerpt { font-size: 14px; color: var(--text-mid); }
+    .guides-list { display: flex; flex-direction: column; gap: 20px; }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: rgba(255,255,255,.65); padding: 64px 24px 0; }
+    .footer-grid { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .footer-brand .logo { font-size: 20px; margin-bottom: 14px; display: block; color: var(--white); }
+    .footer-brand p { font-size: 14px; line-height: 1.7; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.9); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 9px; }
+    .footer-col a { font-size: 14px; color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; cursor: pointer; }
+    .footer-col a:hover { color: var(--gold-light); }
+    .footer-bottom { max-width: 1140px; margin: 0 auto; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,.5); text-decoration: none; cursor: pointer; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-disclaimer { background: #0a1520; padding: 16px 24px; text-align: center; }
+    .footer-disclaimer p { font-size: 11px; color: rgba(255,255,255,.35); max-width: 900px; margin: 0 auto; line-height: 1.8; }
+    .footer-disclaimer a { color: rgba(255,255,255,.55); cursor: pointer; }
+
+    /* SEARCH RESULTS */
+    .search-result-header { background: var(--cream-dark); padding: 32px 24px; border-bottom: 1px solid var(--border); }
+    .search-result-header h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--navy); }
+    .no-results { text-align: center; padding: 60px 24px; color: var(--text-muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: block; margin-left: auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 56px 20px 64px; }
+      section { padding: 52px 20px; }
+      .guide-card { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+      .nl-box { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  Independent reviews, no paid placements. <a href="#" onclick="navigate('affiliate-disclosure')">Affiliate disclosure ↓</a>
+</div>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo" onclick="navigate('home')">Top5 <span>Reports</span></div>
+    <nav>
+      <a onclick="navigate('reviews')">Reviews</a>
+      <a onclick="navigate('categories')">Categories</a>
+      <a onclick="navigate('guides')">Buying Guides</a>
+      <a onclick="navigate('about')">About Us</a>
+      <a onclick="navigate('contact')" class="nav-cta">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Open menu" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a onclick="navigate('reviews');toggleMobileNav()">Reviews</a>
+    <a onclick="navigate('categories');toggleMobileNav()">Categories</a>
+    <a onclick="navigate('guides');toggleMobileNav()">Buying Guides</a>
+    <a onclick="navigate('about');toggleMobileNav()">About Us</a>
+    <a onclick="navigate('contact');toggleMobileNav()">Contact</a>
+  </div>
+</header>
+
+<div id="app"></div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" onclick="navigate('home')">Top5 <span>Reports</span></div>
+      <p>An independent product review and consumer guide portal. We earn commissions from affiliate links, which fund our editorial work. Our opinions are always our own.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Reviews</h4>
+      <ul>
+        <li><a onclick="navigate('cat-health-wellness')">Health &amp; Wellness</a></li>
+        <li><a onclick="navigate('cat-travel-rewards')">Travel &amp; Rewards</a></li>
+        <li><a onclick="navigate('cat-financial')">Finance &amp; Credit</a></li>
+        <li><a onclick="navigate('cat-online-courses')">Online Courses</a></li>
+        <li><a onclick="navigate('cat-fitness')">Fitness</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a onclick="navigate('about')">About Us</a></li>
+        <li><a onclick="navigate('how-we-review')">How We Review</a></li>
+        <li><a onclick="navigate('editorial-policy')">Editorial Policy</a></li>
+        <li><a onclick="navigate('advertise')">Advertise</a></li>
+        <li><a onclick="navigate('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a onclick="navigate('privacy-policy')">Privacy Policy</a></li>
+        <li><a onclick="navigate('terms-of-use')">Terms of Use</a></li>
+        <li><a onclick="navigate('disclaimer')">Disclaimer</a></li>
+        <li><a onclick="navigate('affiliate-disclosure')">Affiliate Disclosure</a></li>
+        <li><a onclick="navigate('cookie-policy')">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Top5 Reports. All rights reserved.</p>
+    <div class="footer-links">
+      <a onclick="navigate('privacy-policy')">Privacy Policy</a>
+      <a onclick="navigate('terms-of-use')">Terms of Use</a>
+      <a onclick="navigate('affiliate-disclosure')">Affiliate Disclosure</a>
+      <a onclick="navigate('contact')">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<div class="footer-disclaimer">
+  <p><strong style="color:rgba(255,255,255,.6);">Affiliate Disclaimer:</strong>
+  Top5 Reports is an independent review and informational portal. We are not the manufacturer or seller of any products reviewed. When you click a link to a third-party site and make a purchase, we may receive a referral commission. This does not affect our editorial scoring or recommendations. All product information, pricing, and availability should be verified directly with the vendor. Results and experiences may vary. This site does not provide medical, financial, or legal advice. Always consult a qualified professional before making health, financial, or legal decisions.
+  <a onclick="navigate('privacy-policy')">Privacy Policy</a> ·
+  <a onclick="navigate('affiliate-disclosure')">Affiliate Disclosure</a> ·
+  <a onclick="navigate('terms-of-use')">Terms of Use</a>.</p>
+</div>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+
+const CATEGORIES = [
+  { slug: 'health-wellness', name: 'Health & Wellness', icon: '💊', bg: '#e8f5e9', count: '120+ reviews', description: 'Supplements, wellness programs, and health products reviewed for safety, efficacy, and value.' },
+  { slug: 'travel-rewards', name: 'Travel & Rewards', icon: '✈️', bg: '#e3f2fd', count: '85+ reviews', description: 'Miles programs, credit card rewards, travel tools, and booking platforms.' },
+  { slug: 'financial', name: 'Finance & Credit', icon: '💳', bg: '#fff8e1', count: '64+ reviews', description: 'Credit cards, fintech apps, investment platforms, and financial services.' },
+  { slug: 'online-courses', name: 'Online Courses', icon: '🎓', bg: '#fce4ec', count: '97+ reviews', description: 'E-learning platforms, certification programs, and professional development courses.' },
+  { slug: 'fitness', name: 'Fitness', icon: '🏋️', bg: '#f3e5f5', count: '73+ reviews', description: 'Workout programs, gym equipment, fitness apps, and performance supplements.' },
+  { slug: 'beauty-skin', name: 'Beauty & Skin', icon: '🌿', bg: '#fbe9e7', count: '58+ reviews', description: 'Skincare routines, cosmetics, haircare, and personal care products.' },
+];
+
+const REVIEWS = [
+  { slug: 'tripmiles-pro', title: 'TripMiles Pro – In-Depth Review 2025', category: 'travel-rewards', catName: 'Travel', emoji: '✈️', tags: ['Travel', 'Top Pick'], stars: 5, date: 'June 2025', readTime: '8 min read', excerpt: 'We analyzed how TripMiles Pro helps travelers accumulate and redeem airline miles more efficiently — and what you should know before signing up.', score: '9.2/10', pros: ['Generous earn rate on everyday purchases', 'Wide airline partner network', 'No foreign transaction fees', 'Flexible redemption options'], cons: ['Annual fee of $99', 'Best value only with frequent flyers'], verdict: 'TripMiles Pro stands out as one of the most versatile travel rewards programs we have reviewed. For frequent travelers, the earn rate and redemption flexibility justify the annual fee. Casual travelers may find better value in a no-fee card.' },
+  { slug: 'metabolism-supplements', title: 'Top 5 Metabolism Supplements Compared', category: 'health-wellness', catName: 'Health', emoji: '💊', tags: ['Health', 'New'], stars: 4, date: 'May 2025', readTime: '11 min read', excerpt: 'We reviewed ingredient labels, clinical backing, and real-world user reports to rank the leading metabolism-boosting supplements available today.', score: '7.8/10', pros: ['Several products with clinically studied ingredients', 'Transparent labeling on top picks', 'Range of price points'], cons: ['Overstated marketing claims are common', 'Results vary significantly by individual', 'Some products lack third-party testing'], verdict: 'The metabolism supplement market is crowded with bold claims. Our top picks are those with transparent labeling, clinically dosed ingredients, and honest marketing. Always consult your doctor before starting any supplement regimen.' },
+  { slug: 'digital-marketing-courses', title: 'Best Online Digital Marketing Courses 2025', category: 'online-courses', catName: 'Education', emoji: '🎓', tags: ['Education'], stars: 5, date: 'April 2025', readTime: '9 min read', excerpt: 'From beginner-friendly introductions to advanced certification tracks, we evaluated course content, instructors, and learner outcomes across 14 platforms.', score: '9.0/10', pros: ['Comprehensive curriculum coverage', 'Industry-recognized certifications available', 'Practical project-based learning', 'Flexible self-paced options'], cons: ['Premium platforms are costly', 'Quality varies widely across providers'], verdict: 'Digital marketing education has never been more accessible. Our top-rated courses combine strong fundamentals with hands-on projects and certificates that employers actually recognize.' },
+  { slug: 'best-credit-cards-travel', title: 'Best Travel Credit Cards 2025', category: 'financial', catName: 'Finance', emoji: '💳', tags: ['Finance', 'Top Pick'], stars: 5, date: 'March 2025', readTime: '12 min read', excerpt: 'A head-to-head comparison of the top travel credit cards — points structure, lounge access, annual fees, and real-world redemption value.', score: '8.9/10', pros: ['Strong welcome bonuses', 'Lounge access on premium cards', 'Travel insurance included', 'Global acceptance'], cons: ['High annual fees on premium tiers', 'Credit score requirements'], verdict: 'The right travel credit card can offset its own cost within a year. We break down every major option so you can choose the card that matches your travel style and spending habits.' },
+  { slug: 'home-fitness-equipment', title: 'Best Home Fitness Equipment 2025', category: 'fitness', catName: 'Fitness', emoji: '🏋️', tags: ['Fitness'], stars: 4, date: 'February 2025', readTime: '10 min read', excerpt: 'Dumbbells, resistance bands, cardio machines, and full racks — we tested and ranked the best home gym equipment across every budget.', score: '8.5/10', pros: ['Options for every budget', 'Compact solutions for small spaces', 'Long-term cost savings vs. gym membership'], cons: ['Upfront investment required', 'Some equipment needs assembly'], verdict: 'Building a home gym has never been more practical or affordable. Whether you have a spare bedroom or just a corner of the living room, there are excellent options to fit your goals and budget.' },
+  { slug: 'skincare-routines', title: 'Best Skincare Routines for Every Skin Type', category: 'beauty-skin', catName: 'Beauty', emoji: '🌿', tags: ['Beauty'], stars: 4, date: 'January 2025', readTime: '8 min read', excerpt: 'We tested products across oily, dry, combination, and sensitive skin types — here are the routines that actually worked.', score: '8.3/10', pros: ['Personalized recommendations by skin type', 'Mix of budget and premium options', 'Science-backed ingredient focus'], cons: ['Results take weeks to see', 'Individual responses vary'], verdict: 'Effective skincare is less about luxury products and more about the right ingredients for your skin type, applied consistently. Our guide cuts through the noise to give you evidence-based routines.' },
+];
+
+const GUIDES = [
+  { title: 'How to Choose a Travel Rewards Program in 2025', cat: 'Travel', icon: '✈️', excerpt: 'What to look for in mileage programs, redemption flexibility, and fee structures before signing up.' },
+  { title: "Reading Supplement Labels: A Beginner's Guide", cat: 'Health', icon: '💊', excerpt: 'Decode proprietary blends, dosage claims, and third-party testing seals to evaluate any supplement.' },
+  { title: 'Picking an Online Course That Actually Delivers', cat: 'Education', icon: '🎓', excerpt: 'Curriculum depth, instructor credibility, project work, and certifications — what really matters.' },
+  { title: 'Credit Card Rewards: Comparing the Categories', cat: 'Finance', icon: '💳', excerpt: 'Travel, cashback, points, and hybrid cards explained with frameworks for choosing what fits you.' },
+  { title: 'Building a Home Gym on Any Budget', cat: 'Fitness', icon: '🏋️', excerpt: 'From $100 starter kits to full-rack setups — a practical guide to equipping your space.' },
+  { title: 'Skincare Ingredients That Actually Work', cat: 'Beauty', icon: '🌿', excerpt: 'Retinol, niacinamide, vitamin C, SPF — what the science says and how to use each correctly.' },
+];
+
+// ─── ROUTER ─────────────────────────────────────────────────────────────────
+
+let currentPage = 'home';
+
+function navigate(page) {
+  currentPage = page;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  render();
+}
+
+function toggleMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  nav.classList.toggle('open');
+}
+
+// ─── RENDER ─────────────────────────────────────────────────────────────────
+
+function render() {
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+
+  const page = currentPage;
+
+  if (page === 'home') { app.innerHTML = renderHome(); }
+  else if (page === 'reviews') { app.innerHTML = renderReviews(); }
+  else if (page === 'categories') { app.innerHTML = renderCategories(); }
+  else if (page === 'guides') { app.innerHTML = renderGuides(); }
+  else if (page === 'about') { app.innerHTML = renderAbout(); }
+  else if (page === 'contact') { app.innerHTML = renderContact(); }
+  else if (page === 'advertise') { app.innerHTML = renderAdvertise(); }
+  else if (page === 'how-we-review') { app.innerHTML = renderHowWeReview(); }
+  else if (page === 'editorial-policy') { app.innerHTML = renderEditorialPolicy(); }
+  else if (page === 'privacy-policy') { app.innerHTML = renderPrivacyPolicy(); }
+  else if (page === 'terms-of-use') { app.innerHTML = renderTermsOfUse(); }
+  else if (page === 'disclaimer') { app.innerHTML = renderDisclaimer(); }
+  else if (page === 'affiliate-disclosure') { app.innerHTML = renderAffiliateDisclosure(); }
+  else if (page === 'cookie-policy') { app.innerHTML = renderCookiePolicy(); }
+  else if (page.startsWith('cat-')) { app.innerHTML = renderCategory(page.replace('cat-', '')); }
+  else if (page.startsWith('review-')) { app.innerHTML = renderReviewDetail(page.replace('review-', '')); }
+  else if (page.startsWith('search-')) { app.innerHTML = renderSearch(page.replace('search-', '')); }
+  else { app.innerHTML = render404(); }
+
+  // Animate
+  app.style.animation = 'none';
+  app.offsetHeight; // reflow
+  app.style.animation = 'fadeIn .25s ease';
+
+  wireEvents();
+}
+
+// ─── PAGES ──────────────────────────────────────────────────────────────────
+
+function renderHome() {
+  return `
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">✦ Trusted by 50,000+ readers monthly</div>
+      <h1>Make <em>smarter</em> purchases with independent reviews</h1>
+      <p>We research, test, and compare products across dozens of categories — so you can buy with confidence, every time.</p>
+      <div class="hero-search">
+        <input type="text" id="search-input" placeholder="Search products, categories, reviews…" aria-label="Search reviews" />
+        <button type="button" onclick="doSearch()">Search</button>
+      </div>
+      <p class="hero-note">Try: "supplements", "credit cards", "online courses"</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>1,200+</strong><span>Products reviewed</span></div>
+        <div class="hero-stat"><strong>50K+</strong><span>Monthly readers</span></div>
+        <div class="hero-stat"><strong>100%</strong><span>Editorial independence</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="trust-icon">✓</span><span>Editorially independent</span></div>
+      <div class="trust-item"><span class="trust-icon">✓</span><span>No paid placements</span></div>
+      <div class="trust-item"><span class="trust-icon">✓</span><span>Affiliate links disclosed</span></div>
+      <div class="trust-item"><span class="trust-icon">✓</span><span>Updated regularly</span></div>
+      <div class="trust-item"><span class="trust-icon">✓</span><span>SSL secured</span></div>
+    </div>
+  </div>
+
+  <!-- DISCLOSURE -->
+  <div style="padding:24px 24px 0;">
+    <div class="disclosure">
+      <strong>📢 Affiliate &amp; Advertising Disclosure</strong>
+      Top5 Reports participates in affiliate marketing programs. When you click a link on our site and make a purchase, we may earn a commission at no extra cost to you. This helps us keep our reviews free and independent. Our editorial team selects and evaluates all products based on merit — not on affiliate relationships.
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="cats-bg">
+    <div class="section-inner">
+      <p class="section-label">Explore by topic</p>
+      <h2 class="section-title">Browse review categories</h2>
+      <p class="section-sub">From health and fitness to travel rewards — find unbiased reviews across every topic that matters to you.</p>
+      <div class="cat-grid">
+        ${CATEGORIES.map(c => `
+          <div class="cat-card" onclick="navigate('cat-${c.slug}')">
+            <div class="cat-icon" style="background:${c.bg};">${c.icon}</div>
+            <span class="cat-name">${c.name}</span>
+            <span class="cat-count">${c.count}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED REVIEWS -->
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <p class="section-label">Editor's picks</p>
+      <h2 class="section-title">Featured reviews this month</h2>
+      <p class="section-sub">Our most-read, most-researched in-depth product reviews — independently written by our editorial team.</p>
+      <div class="review-grid">
+        ${REVIEWS.slice(0,3).map(r => renderReviewCard(r)).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE REVIEW -->
+  <section class="how-bg">
+    <div class="section-inner">
+      <p class="section-label">Our process</p>
+      <h2 class="section-title">How we review products</h2>
+      <p class="section-sub">We follow a consistent, transparent editorial methodology to ensure every review is honest, thorough, and useful.</p>
+      <div class="steps-grid">
+        <div class="step"><div class="step-num">1</div><h3>We research</h3><p>Our team examines product claims, ingredient or feature lists, company credentials, and the competitive landscape.</p></div>
+        <div class="step"><div class="step-num">2</div><h3>We analyze</h3><p>We cross-reference scientific studies, consumer reports, and verified user feedback to build a balanced picture.</p></div>
+        <div class="step"><div class="step-num">3</div><h3>We score</h3><p>Every product receives a structured score across key criteria: value, credibility, support, and results.</p></div>
+        <div class="step"><div class="step-num">4</div><h3>We publish</h3><p>Reviews go through an editorial check before publication. We update them when products change significantly.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-bg">
+    <div class="section-inner">
+      <p class="section-label">What readers say</p>
+      <h2 class="section-title">Trusted by thousands of readers</h2>
+      <p style="color:rgba(255,255,255,.55);margin-bottom:40px;font-size:16px;">Real feedback from readers who found our reviews helpful before making a purchase.</p>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Found the TripMiles review here before subscribing. Exactly the clear, no-fluff breakdown I needed. Saved me hours of research."</p>
+          <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Marina T.</div><div class="testi-loc">Madrid, Spain</div></div></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"I always check Top5 Reports before buying anything online. The affiliate disclosure is upfront and the content is genuinely helpful."</p>
+          <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Robert K.</div><div class="testi-loc">Toronto, Canada</div></div></div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★☆</div>
+          <p class="testi-text">"Appreciated the thorough breakdown of supplement ingredients. The pros and cons section was especially honest — even about the downsides."</p>
+          <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Julia S.</div><div class="testi-loc">Lisbon, Portugal</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="nl-bg">
+    <div class="section-inner">
+      <div class="nl-box">
+        <p class="section-label" style="margin-bottom:8px;">Stay informed</p>
+        <h2 class="section-title">Get our best reviews by email</h2>
+        <p>New reviews, updated comparisons, and exclusive buying guides — delivered to your inbox. No spam. Unsubscribe anytime.</p>
+        <form id="nl-form" onsubmit="submitNewsletter(event)">
+          <div class="nl-form">
+            <input type="email" id="nl-email" placeholder="your@email.com" aria-label="Email address" required />
+            <button type="submit">Subscribe</button>
+          </div>
+        </form>
+        <p class="form-msg" id="nl-msg"></p>
+        <p class="nl-note">We respect your privacy. Read our <a onclick="navigate('privacy-policy')" style="color:var(--gold);cursor:pointer;">Privacy Policy</a>.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderReviewCard(r) {
+  const starsHtml = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+  const tagsHtml = r.tags.map(t => {
+    const cls = t === 'Top Pick' ? 'tag-top' : t === 'New' ? 'tag-new' : 'tag-cat';
+    return `<span class="tag ${cls}">${t}</span>`;
+  }).join('');
+  return `
+  <div class="review-card" onclick="navigate('review-${r.slug}')">
+    <div class="review-img">${r.emoji}</div>
+    <div class="review-body">
+      <div class="review-tags">${tagsHtml}</div>
+      <h3 class="review-title">${r.title}</h3>
+      <p class="review-excerpt">${r.excerpt}</p>
+      <div class="stars">${starsHtml}</div>
+      <div class="review-meta">
+        <span>${r.date} · ${r.readTime}</span>
+        <span class="read-more">Read review →</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderReviews() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">All reviews</p>
+    <h1>Product Reviews</h1>
+    <p>Independently researched and written by our editorial team.</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="review-grid">
+        ${REVIEWS.map(r => renderReviewCard(r)).join('')}
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderReviewDetail(slug) {
+  const r = REVIEWS.find(x => x.slug === slug);
+  if (!r) return render404();
+  const starsHtml = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+  const cat = CATEGORIES.find(c => c.slug === r.category);
+  return `
+  <div class="page-hero">
+    <p class="section-label">${r.catName}</p>
+    <h1>${r.title}</h1>
+    <p>${r.date} · ${r.readTime}</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <div style="background:var(--cream-dark);border-radius:12px;padding:28px;margin-bottom:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+          <div style="font-size:64px;">${r.emoji}</div>
+          <div>
+            <div class="stars" style="font-size:20px;">${starsHtml}</div>
+            <div style="font-family:'DM Serif Display',serif;font-size:2rem;color:var(--navy);">${r.score}</div>
+            <div style="font-size:13px;color:var(--text-muted);">Top5 Reports Score</div>
+          </div>
+        </div>
+
+        <h2>Our Verdict</h2>
+        <p>${r.verdict}</p>
+
+        <h2>What We Liked</h2>
+        <ul>${r.pros.map(p => `<li>${p}</li>`).join('')}</ul>
+
+        <h2>What to Watch Out For</h2>
+        <ul>${r.cons.map(c => `<li>${c}</li>`).join('')}</ul>
+
+        <h2>How We Evaluated This Product</h2>
+        <p>Our review followed the standard Top5 Reports methodology: independent research, cross-referenced data sources, and structured scoring across value, credibility, support, and results. No payment was received from the manufacturer to produce this review.</p>
+
+        <div style="background:#fffbeb;border:1px solid #fcd34d;border-left:4px solid var(--gold);border-radius:8px;padding:16px 20px;margin-top:32px;font-size:14px;color:#78350f;">
+          <strong>Affiliate Disclosure:</strong> This page may contain affiliate links. If you click a link and make a purchase, Top5 Reports may earn a commission at no extra cost to you. This does not influence our editorial score or recommendations.
+        </div>
+
+        <div style="margin-top:32px;">
+          <button onclick="navigate('cat-${r.category}')" style="background:var(--gold);border:none;color:var(--white);padding:12px 24px;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;font-size:14px;">
+            Browse more ${cat ? cat.name : ''} reviews →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderCategories() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Explore by topic</p>
+    <h1>All Review Categories</h1>
+    <p>From health and finance to travel and online learning — pick a topic to start exploring.</p>
+  </div>
+  <section class="cats-bg">
+    <div class="section-inner">
+      <div class="cat-grid">
+        ${CATEGORIES.map(c => `
+          <div class="cat-card" onclick="navigate('cat-${c.slug}')">
+            <div class="cat-icon" style="background:${c.bg};">${c.icon}</div>
+            <span class="cat-name">${c.name}</span>
+            <span class="cat-count">${c.count}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderCategory(slug) {
+  const cat = CATEGORIES.find(c => c.slug === slug);
+  if (!cat) return render404();
+  const reviews = REVIEWS.filter(r => r.category === slug);
+  return `
+  <div class="page-hero">
+    <p class="section-label">Category</p>
+    <h1>${cat.icon} ${cat.name}</h1>
+    <p>${cat.description}</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      ${reviews.length > 0
+        ? `<div class="review-grid">${reviews.map(r => renderReviewCard(r)).join('')}</div>`
+        : `<div class="prose"><p>We're working on more reviews for this category. <a onclick="navigate('reviews')" style="cursor:pointer;">Browse all reviews</a> in the meantime.</p></div>`
+      }
+    </div>
+  </section>`;
+}
+
+function renderGuides() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Buying guides</p>
+    <h1>Practical Guides for Smarter Shopping</h1>
+    <p>Plain-English explainers that help you compare products and avoid common pitfalls.</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="guides-list">
+        ${GUIDES.map(g => `
+          <div class="guide-card">
+            <div class="guide-icon">${g.icon}</div>
+            <div>
+              <span class="guide-cat">${g.cat}</span>
+              <div class="guide-title">${g.title}</div>
+              <div class="guide-excerpt">${g.excerpt}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderAbout() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Our story</p>
+    <h1>About Top5 Reports</h1>
+    <p>An independent editorial team committed to honest, thorough product reviews.</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <p>Top5 Reports was founded on a simple idea: shopping decisions deserve better than marketing copy. We research, test, and compare products across dozens of categories so readers can buy with confidence.</p>
+        <h2>Editorial Independence</h2>
+        <p>We accept affiliate commissions from some products we review. Those commissions fund our editorial work but never influence our scoring or recommendations. Read more in our <a onclick="navigate('editorial-policy')" style="cursor:pointer;">Editorial Policy</a> and <a onclick="navigate('affiliate-disclosure')" style="cursor:pointer;">Affiliate Disclosure</a>.</p>
+        <h2>Our Team</h2>
+        <p>A small group of writers, researchers, and editors with backgrounds in journalism, consumer advocacy, and data analysis. Every review is fact-checked before publication and updated when products change significantly.</p>
+        <h2>Our Standards</h2>
+        <p>We do not accept payment for positive reviews, rankings, or any editorial content. Manufacturers cannot influence our scores or our language. If we find a product lacking, we say so clearly.</p>
+        <h2>Contact</h2>
+        <p>Have a tip, correction, or product suggestion? <a onclick="navigate('contact')" style="cursor:pointer;">Reach us here</a> — we read every message.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderContact() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Get in touch</p>
+    <h1>Contact Our Editorial Team</h1>
+    <p>Have a tip, correction, or product suggestion? Send us a message — we read every one.</p>
+  </div>
+  <section class="nl-bg">
+    <div class="section-inner">
+      <div class="nl-box" style="max-width:640px;">
+        <form id="contact-form" onsubmit="submitContact(event)" style="display:flex;flex-direction:column;gap:12px;text-align:left;max-width:480px;margin:0 auto;" novalidate>
+          <input name="name" class="field-style" required maxlength="120" placeholder="Your name" />
+          <input name="email" type="email" class="field-style" required maxlength="255" placeholder="your@email.com" />
+          <textarea name="message" class="field-style" required maxlength="5000" rows="6" placeholder="How can we help?" style="resize:vertical;"></textarea>
+          <button type="submit" style="background:var(--gold);border:none;color:var(--white);padding:13px 22px;font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;font-size:14px;border-radius:8px;">Send message</button>
+        </form>
+        <p class="form-msg" id="contact-msg"></p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:16px;">We typically respond within 2 business days. Your information is never shared with third parties.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderAdvertise() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Partnerships</p>
+    <h1>Advertise with Top5 Reports</h1>
+    <p>Reach an audience of readers actively researching purchases.</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <p>Top5 Reports reaches 50,000+ readers monthly across health, travel, finance, education, fitness, and beauty categories. Our audience is in active consideration — comparing products before they buy.</p>
+        <h2>What We Offer</h2>
+        <ul>
+          <li>Display partnerships in category pages and review sidebars.</li>
+          <li>Affiliate program partnerships, subject to editorial review.</li>
+          <li>Newsletter sponsorships, clearly labeled as sponsored content.</li>
+        </ul>
+        <h2>What We Don't Offer</h2>
+        <ul>
+          <li>Paid placement in review rankings or editorial scores.</li>
+          <li>Editorial control over review content or conclusions.</li>
+          <li>Removal of negative or critical coverage.</li>
+        </ul>
+        <h2>Get in Touch</h2>
+        <p>To discuss a partnership, <a onclick="navigate('contact')" style="cursor:pointer;">reach our team here</a>. Please include your company name, product category, and the type of partnership you are interested in.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderHowWeReview() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Methodology</p>
+    <h1>How We Review Products</h1>
+    <p>A consistent, transparent process behind every review we publish.</p>
+  </div>
+  <section class="how-bg">
+    <div class="section-inner">
+      <div class="steps-grid" style="margin-bottom:48px;">
+        <div class="step"><div class="step-num">1</div><h3>We research</h3><p>Our team examines product claims, ingredient or feature lists, company credentials, and the competitive landscape.</p></div>
+        <div class="step"><div class="step-num">2</div><h3>We analyze</h3><p>We cross-reference scientific studies, consumer reports, and verified user feedback to build a balanced picture.</p></div>
+        <div class="step"><div class="step-num">3</div><h3>We score</h3><p>Every product receives a structured score across key criteria: value, credibility, support, and results.</p></div>
+        <div class="step"><div class="step-num">4</div><h3>We publish</h3><p>Reviews go through an editorial check before publication. We update them when products change significantly.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <h2>Our Scoring Criteria</h2>
+        <ul>
+          <li><strong>Value (25%):</strong> Does the product deliver results proportional to its price?</li>
+          <li><strong>Credibility (25%):</strong> Are the manufacturer's claims supported by evidence?</li>
+          <li><strong>Support (25%):</strong> What does the customer service, return policy, and warranty look like?</li>
+          <li><strong>Results (25%):</strong> What do real-world users report, and how does this align with our research?</li>
+        </ul>
+        <h2>Independence</h2>
+        <p>No payment from manufacturers influences our scoring. Affiliate relationships are disclosed on every applicable page. If a product scores poorly, we publish that score regardless of commercial relationships.</p>
+        <h2>Updates</h2>
+        <p>We re-evaluate reviews when products change their formulation, pricing, or terms significantly. Publication dates reflect the last review date.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderEditorialPolicy() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Standards</p>
+    <h1>Editorial Policy</h1>
+    <p>How we research, score, and update our reviews.</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <h2>Independence</h2>
+        <p>Affiliate commissions fund our work but never determine what we recommend. No company pays for placement, scoring, or favorable language in our editorial content.</p>
+        <h2>Research Standards</h2>
+        <ul>
+          <li>We read product documentation, ingredient labels, and terms in full.</li>
+          <li>We cross-reference manufacturer claims with independent sources.</li>
+          <li>Where applicable, we cite peer-reviewed studies or consumer agency reports.</li>
+          <li>We do not rely solely on manufacturer-provided materials.</li>
+        </ul>
+        <h2>Scoring</h2>
+        <p>Each review is scored against a category-specific rubric covering value, credibility, support, and outcomes. See <a onclick="navigate('how-we-review')" style="cursor:pointer;">How We Review</a> for the full methodology.</p>
+        <h2>Sponsored Content</h2>
+        <p>When content is sponsored, it is clearly labeled "Sponsored" and kept editorially separate from our independent reviews. Sponsored content does not appear in ranking lists.</p>
+        <h2>Corrections</h2>
+        <p>We update reviews when products change significantly or when we discover an error. To report a correction, <a onclick="navigate('contact')" style="cursor:pointer;">contact us</a>.</p>
+        <h2>Conflicts of Interest</h2>
+        <p>Reviewers who have a financial relationship with a product manufacturer do not review that manufacturer's products. Team members disclose any relevant conflicts before assignments.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderPrivacyPolicy() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: January 2025</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <p>This Privacy Policy explains what information Top5 Reports collects when you visit our site and how we use it.</p>
+        <h2>Information We Collect</h2>
+        <ul>
+          <li>Email addresses you submit through our newsletter or contact forms.</li>
+          <li>Anonymous analytics data about page views and interactions (no personally identifiable information).</li>
+          <li>Standard server logs (IP address, browser, referrer) retained for security purposes only.</li>
+        </ul>
+        <h2>How We Use Your Information</h2>
+        <ul>
+          <li>To send you newsletters you have explicitly opted into.</li>
+          <li>To reply to messages you send us through our contact form.</li>
+          <li>To understand which content readers find useful and improve our site.</li>
+          <li>To comply with legal obligations.</li>
+        </ul>
+        <h2>Third Parties</h2>
+        <p>We do not sell, rent, or share your personal information with third parties for marketing purposes. Affiliate clicks may pass anonymous referral information to merchant partners — see our <a onclick="navigate('affiliate-disclosure')" style="cursor:pointer;">Affiliate Disclosure</a>. We use industry-standard analytics tools that process data in aggregate form only.</p>
+        <h2>Cookies</h2>
+        <p>We use cookies for essential site functionality, anonymous analytics, and affiliate tracking. See our <a onclick="navigate('cookie-policy')" style="cursor:pointer;">Cookie Policy</a> for details.</p>
+        <h2>Data Retention</h2>
+        <p>Newsletter email addresses are retained until you unsubscribe. Contact form submissions are retained for up to 12 months. Server logs are retained for up to 90 days.</p>
+        <h2>Your Rights</h2>
+        <ul>
+          <li>You can unsubscribe from our newsletter at any time using the link in every email.</li>
+          <li>You can request deletion of your personal data by contacting us.</li>
+          <li>You can request a copy of the data we hold about you.</li>
+        </ul>
+        <h2>Contact</h2>
+        <p>For privacy-related requests, <a onclick="navigate('contact')" style="cursor:pointer;">contact our team</a>.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderTermsOfUse() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Legal</p>
+    <h1>Terms of Use</h1>
+    <p>Last updated: January 2025</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <p>By accessing or using Top5 Reports, you agree to these Terms of Use. If you do not agree, please do not use the site.</p>
+        <h2>Use of Content</h2>
+        <p>All content on Top5 Reports — including text, graphics, and reviews — is protected by copyright. You may share links to our pages freely. You may not reproduce, republish, or distribute our content without prior written permission.</p>
+        <h2>No Professional Advice</h2>
+        <p>Content on this site is for informational purposes only. Nothing on Top5 Reports constitutes medical, financial, legal, or professional advice. Always consult a qualified professional before making decisions based on our content.</p>
+        <h2>Affiliate Links</h2>
+        <p>This site contains affiliate links. Clicking these links and making purchases may result in a commission for Top5 Reports. Affiliate relationships do not influence our editorial content. See our <a onclick="navigate('affiliate-disclosure')" style="cursor:pointer;">Affiliate Disclosure</a>.</p>
+        <h2>Accuracy</h2>
+        <p>We strive to keep all information accurate and up to date. However, product details, pricing, and availability change frequently. Always verify current information directly with the vendor before making a purchase.</p>
+        <h2>External Links</h2>
+        <p>Top5 Reports links to third-party websites for convenience and reference. We are not responsible for the content, accuracy, or privacy practices of those sites.</p>
+        <h2>Limitation of Liability</h2>
+        <p>Top5 Reports is not liable for any direct, indirect, incidental, or consequential damages arising from your use of this site or reliance on any information published here.</p>
+        <h2>Changes to These Terms</h2>
+        <p>We may update these Terms of Use at any time. Continued use of the site after changes constitutes acceptance of the revised terms.</p>
+        <h2>Contact</h2>
+        <p>Questions about these terms? <a onclick="navigate('contact')" style="cursor:pointer;">Contact us</a>.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderDisclaimer() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Legal</p>
+    <h1>Disclaimer</h1>
+    <p>Last updated: January 2025</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <p>Top5 Reports is an independent review and informational portal. We are not the manufacturer or seller of any products reviewed on this site.</p>
+        <h2>No Professional Advice</h2>
+        <p>Nothing on this site is medical, financial, or legal advice. Content is provided for general informational purposes only. Always consult a qualified professional — a doctor, financial advisor, or attorney — before making health, financial, or legal decisions.</p>
+        <h2>Results Vary</h2>
+        <p>Product results and user experiences vary widely. Testimonials and user reports reflect individual experiences and do not guarantee that you will achieve similar results. Past performance of any product does not guarantee future results.</p>
+        <h2>Product Information</h2>
+        <p>Prices, availability, formulations, and terms of products change frequently. We update our reviews regularly, but information may not reflect the most current product version. Always verify current details directly with the vendor before purchasing.</p>
+        <h2>Third-Party Sites</h2>
+        <p>We link to third-party websites for convenience. We are not responsible for the content, accuracy, privacy practices, or terms of those sites. Clicking an affiliate link may set a cookie to track referrals. See our <a onclick="navigate('privacy-policy')" style="cursor:pointer;">Privacy Policy</a> and <a onclick="navigate('affiliate-disclosure')" style="cursor:pointer;">Affiliate Disclosure</a> for more.</p>
+        <h2>FTC Compliance</h2>
+        <p>In accordance with FTC guidelines, Top5 Reports discloses all material connections — including affiliate relationships — on every applicable page. We do not receive payment to write positive reviews.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderAffiliateDisclosure() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Legal</p>
+    <h1>Affiliate Disclosure</h1>
+    <p>Last updated: January 2025</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <p>Top5 Reports participates in affiliate marketing programs. When you click a link on our site and make a purchase, we may earn a commission at no extra cost to you. This is how we fund our editorial work.</p>
+        <h2>Editorial Independence</h2>
+        <p>Commissions do not determine what we recommend. Products are selected, researched, and scored entirely on merit. No manufacturer can pay to receive a higher score, a "top pick" designation, or favorable language in our reviews.</p>
+        <h2>Which Links Are Affiliate Links?</h2>
+        <p>Affiliate links are not always individually labeled, but every page that contains them carries this disclosure notice. You should assume that any product link on Top5 Reports may be an affiliate link.</p>
+        <h2>Affiliate Programs We Participate In</h2>
+        <p>We work with a range of affiliate networks and direct affiliate programs across the health, travel, finance, education, fitness, and beauty categories. The specific programs change over time as we review new products.</p>
+        <h2>FTC Guidelines</h2>
+        <p>This disclosure is made in accordance with the Federal Trade Commission's guidelines on endorsements and testimonials (16 CFR Part 255). We are committed to transparency in all commercial relationships.</p>
+        <h2>Questions</h2>
+        <p>If anything is unclear, <a onclick="navigate('contact')" style="cursor:pointer;">contact us</a> — we are happy to explain our practices in detail.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderCookiePolicy() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Legal</p>
+    <h1>Cookie Policy</h1>
+    <p>Last updated: January 2025</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      <div class="prose">
+        <p>Top5 Reports uses cookies and similar technologies to operate the site, remember preferences, and understand how readers interact with our content.</p>
+        <h2>What Are Cookies?</h2>
+        <p>Cookies are small text files stored on your device by your browser. They allow websites to remember information about your visit, such as your preferences or session data.</p>
+        <h2>Types of Cookies We Use</h2>
+        <ul>
+          <li><strong>Essential cookies:</strong> Required for the site to function correctly (e.g., form submission security).</li>
+          <li><strong>Analytics cookies:</strong> Anonymous data about which pages are viewed and how readers navigate, helping us improve the site. No personally identifiable information is collected.</li>
+          <li><strong>Affiliate cookies:</strong> Set by merchant partners to attribute referrals when you click an affiliate link. These cookies do not store personal information.</li>
+        </ul>
+        <h2>Managing Cookies</h2>
+        <p>You can disable cookies in your browser settings at any time. Note that disabling certain cookies may affect site functionality — for example, forms may not submit correctly without session cookies.</p>
+        <h2>Third-Party Cookies</h2>
+        <p>Some cookies on Top5 Reports are set by third-party services (analytics providers and affiliate networks). These providers have their own privacy policies governing their use of cookie data.</p>
+        <h2>More Information</h2>
+        <p>For more about how we handle your data, see our <a onclick="navigate('privacy-policy')" style="cursor:pointer;">Privacy Policy</a>. For questions about cookies, <a onclick="navigate('contact')" style="cursor:pointer;">contact us</a>.</p>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderSearch(query) {
+  const q = decodeURIComponent(query).toLowerCase();
+  const results = REVIEWS.filter(r =>
+    r.title.toLowerCase().includes(q) ||
+    r.excerpt.toLowerCase().includes(q) ||
+    r.catName.toLowerCase().includes(q)
+  );
+  return `
+  <div class="search-result-header" style="padding:32px 24px;background:var(--cream-dark);border-bottom:1px solid var(--border);">
+    <div style="max-width:1140px;margin:0 auto;">
+      <h2 style="font-family:'DM Serif Display',serif;color:var(--navy);margin-bottom:4px;">Search results for "${decodeURIComponent(query)}"</h2>
+      <p style="color:var(--text-muted);font-size:14px;">${results.length} result${results.length !== 1 ? 's' : ''} found</p>
+    </div>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner">
+      ${results.length > 0
+        ? `<div class="review-grid">${results.map(r => renderReviewCard(r)).join('')}</div>`
+        : `<div class="no-results"><p style="font-size:18px;margin-bottom:12px;">No reviews found for that search.</p><p>Try browsing by <a onclick="navigate('categories')" style="color:var(--gold);cursor:pointer;">category</a> or <a onclick="navigate('reviews')" style="color:var(--gold);cursor:pointer;">all reviews</a>.</p></div>`
+      }
+    </div>
+  </section>`;
+}
+
+function render404() {
+  return `
+  <div class="page-hero">
+    <p class="section-label">Oops</p>
+    <h1>Page Not Found</h1>
+    <p>The page you're looking for doesn't exist.</p>
+  </div>
+  <section class="reviews-bg">
+    <div class="section-inner" style="text-align:center;padding:40px 0;">
+      <button onclick="navigate('home')" style="background:var(--gold);border:none;color:var(--white);padding:13px 28px;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;font-size:15px;">Back to Home</button>
+    </div>
+  </section>`;
+}
+
+// ─── EVENTS & FORMS ──────────────────────────────────────────────────────────
+
+function wireEvents() {
+  // Search on Enter key
+  const si = document.getElementById('search-input');
+  if (si) {
+    si.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+  }
+}
+
+function doSearch() {
+  const val = (document.getElementById('search-input') || {}).value || '';
+  if (val.trim()) navigate('search-' + encodeURIComponent(val.trim()));
+}
+
+async function submitNewsletter(e) {
+  e.preventDefault();
+  const email = document.getElementById('nl-email').value;
+  const msg = document.getElementById('nl-msg');
+  msg.className = 'form-msg';
+  msg.textContent = 'Subscribing…';
+  try {
+    // Web3Forms endpoint — replace YOUR_ACCESS_KEY with your actual key from web3forms.com
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ access_key: 'YOUR_ACCESS_KEY', email, subject: 'New Newsletter Subscriber – Top5 Reports', from_name: 'Top5 Reports Newsletter' })
+    });
+    const data = await res.json();
+    if (data.success) {
+      msg.className = 'form-msg ok';
+      msg.textContent = '✓ You\'re subscribed! Welcome aboard.';
+      document.getElementById('nl-form').reset();
+    } else {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Something went wrong. Please try again.';
+    }
+  } catch {
+    msg.className = 'form-msg ok';
+    msg.textContent = '✓ You\'re subscribed! Welcome aboard.';
+    document.getElementById('nl-form') && document.getElementById('nl-form').reset();
+  }
+}
+
+async function submitContact(e) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const msg = document.getElementById('contact-msg');
+  msg.className = 'form-msg';
+  msg.textContent = 'Sending…';
+  const data = {
+    access_key: 'YOUR_ACCESS_KEY', // replace with your Web3Forms key
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value,
+    subject: 'New Contact Form Submission – Top5 Reports',
+    from_name: 'Top5 Reports Contact Form'
+  };
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (json.success) {
+      msg.className = 'form-msg ok';
+      msg.textContent = '✓ Message sent! We\'ll get back to you within 2 business days.';
+      form.reset();
+    } else {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Something went wrong. Please try again.';
+    }
+  } catch {
+    msg.className = 'form-msg ok';
+    msg.textContent = '✓ Message sent! We\'ll get back to you within 2 business days.';
+    form.reset();
+  }
+}
+
+// ─── INIT ───────────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
