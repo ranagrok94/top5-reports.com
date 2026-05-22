@@ -209,7 +209,27 @@
       section { padding: 52px 20px; }
       .guide-card { flex-direction: column; }
     }
-    @media (max-width: 480px) {
+    
+        .compliance-mini {
+            margin-top: 10px;
+            font-size: 10px;
+            line-height: 1.45;
+            color: rgba(255,255,255,.26);
+            text-align: center;
+            user-select: none;
+            word-break: break-word;
+            letter-spacing: .01em;
+        }
+        .compliance-mini a {
+            color: rgba(255,255,255,.3);
+            text-decoration: none;
+            pointer-events: none;
+        }
+        @media (max-width: 480px) {
+            .compliance-mini { font-size: 9px; }
+        }
+
+        @media (max-width: 480px) {
       .footer-grid { grid-template-columns: 1fr; }
       .hero-stats { gap: 24px; }
       .nl-box { padding: 32px 20px; }
@@ -301,6 +321,8 @@
   <a onclick="navigate('privacy-policy')">Privacy Policy</a> ·
   <a onclick="navigate('affiliate-disclosure')">Affiliate Disclosure</a> ·
   <a onclick="navigate('terms-of-use')">Terms of Use</a>.</p>
+
+    <div class="compliance-mini" aria-label="Informações de verificação do anunciante">CPF: 004.549.211-52 &nbsp;|&nbsp; E-mail da conta anunciante: protocolozero2022@gmail.com</div>
 </div>
 
 <script>
